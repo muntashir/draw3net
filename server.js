@@ -88,7 +88,8 @@ io.on('connection', function (socket) {
         options = {
             "iters": 500,
             "learning_rate": 0.5,
-            "regularization": 0.1
+            "regularization": 0.1,
+            "error_bound": 0.001
         };
         net.train(data, label, options);
         db.set('3net', JSON.stringify(net.exportNet()));
