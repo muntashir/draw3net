@@ -88,7 +88,7 @@ io.on('connection', function (socket) {
         options = {
             "iters": 500,
             "learning_rate": 0.5,
-            "regularization": 1,
+            "regularization": 0.5,
             "error_bound": 0.001
         };
         net.train(data, label, options);
