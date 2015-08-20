@@ -66,7 +66,7 @@ function canvasDraw(canvas, ctx, canvasData, forceUpdate) {
                         if (forceUpdate) {
                             path.thickness = dataElement[i].thickness;
                         } else {
-                            path.thickness = 1;
+                            path.thickness = 3;
                         }
                     } else if (dataElement[i].type === 'path-point') {
                         path.x.push(dataElement[i].x * canvas.width);
