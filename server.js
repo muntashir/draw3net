@@ -27,7 +27,7 @@ var net;
 db.on('connect', function () {
     db.get('3net', function (err, data) {
         if (err || data === null) {
-            net = three_net.createNet(netDim * netDim, hiddenLayer, 36, "sigmoid");
+            net = three_net.createNet(netDim * netDim, hiddenLayer, 36, "tanh");
             db.set('3net', JSON.stringify(net.exportNet()));
         } else {
             net = three_net.importNet(JSON.parse(data));
