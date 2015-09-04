@@ -27,7 +27,7 @@ var net;
 db.on('connect', function () {
     db.get('3net', function (err, data) {
         if (err || data === null) {
-            net = three_net.createNet(netDim * netDim, hiddenLayer, 36);
+            net = three_net.createNet(netDim * netDim, hiddenLayer, 36, "sigmoid");
             db.set('3net', JSON.stringify(net.exportNet()));
         } else {
             net = three_net.importNet(JSON.parse(data));
@@ -85,7 +85,12 @@ io.on('connection', function (socket) {
     });
 
     socket.on('train', function (data, label) {
-        net.train(data, label);
+        options = {
+            "learning_rate": 0.3,
+            "dropconnect": 0.05,
+            "regularization": 0,
+        };
+        net.train(data, label, options);
         db.set('3net', JSON.stringify(net.exportNet()));
         socket.emit('done-train');
     });

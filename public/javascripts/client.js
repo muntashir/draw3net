@@ -203,7 +203,7 @@
                 point.x = mousePos.x;
                 point.y = mousePos.y;
                 point.color = '#000';
-                point.thickness = dim / 4;
+                point.thickness = dim / 5;
                 dataBuffer.push(point);
                 flushBuffer();
             }
